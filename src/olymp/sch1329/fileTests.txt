@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        BufferedWriter logOutput = new BufferedWriter(new OutputStreamWriter(System.out));
+        BufferedReader logInput = new BufferedReader(new InputStreamReader(System.in));
+        String inputLine;
+        long[] nums = new long[4];
+
+        while ((inputLine = logInput.readLine()) != null) {
+            for (int i = 0; i < inputLine.split("\\s").length; i++) {
+                nums[i] = Integer.parseInt(inputLine.split("\\s")[i]);
+            }
+            break;
+        }
+
+        long a = nums[0];
+        long b = nums[1];
+        long a1 = nums[2];
+        long b1 = nums[3];
+
+        long dif1 = Math.abs(a-a1);
+        long dif2 = Math.abs(b-b1);
+
+        if (dif1 > dif2) {
+            logOutput.write("First");
+            logOutput.flush();
+        } else if (dif1 < dif2) {
+            logOutput.write("Second");
+            logOutput.flush();
+        } else {
+            logOutput.write("Draw");
+            logOutput.flush();
+        }
+    }
+}
